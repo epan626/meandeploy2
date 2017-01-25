@@ -1,0 +1,90 @@
+<div ng-controller='loginController'>
+  <div class="row">
+    <div class="col-sm-3">
+      <a href="" ng-click='logout()'>logout</a>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-7">
+    <p>Hello!</p>
+    <p>Please enter your name to join and share your ideas</p>
+  </div>
+    <div class="alert alert-danger" ng-repeat='message in messages'>
+      <p ng-show='errors'> {{ message }} </p>
+    </div>
+  <div class="col-sm-3"></div>
+</div>
+<form ng-submit='enter()'>
+
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <h5>register</h5>
+      <input type="text" ng-model='user.first_name' placeholder='First name'>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+      <input type="text" ng-model='user.last_name' placeholder='Last name'>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+      <input type="text" ng-model='user.username' placeholder='Username'>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+      <input type="password" ng-model='user.password' placeholder='Password'>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+      <input type="password" ng-model='user.conpassword' placeholder='Confirm password'>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-4">
+    <input type="submit" value="Enter">
+  </div>
+</div>
+</div>
+</form>
+<div class="col-sm-6">
+<form ng-submit='login()'>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h5>Log in</h5>
+        <input type="text" ng-model='one.username' placeholder='Username'>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <input type="password" ng-model='one.password' placeholder='Password'>
+    </div>
+    <div class="col-sm-3"> <input type="submit" value="log in"></div>
+  </div>
+  </form>
+</div>
+</div>
+</div>

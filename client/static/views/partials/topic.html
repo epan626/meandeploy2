@@ -1,0 +1,43 @@
+<div ng-controller='topicController'>
+  <a href="" ng-click='logout()'>logout</a>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <h5>{{topics[0].username}} posted a topic:</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2 col-sm-offset-3">
+    <h6>Topic: {{topics[0].topic}}</h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2 col-sm-offset-3">
+    <h6>Description: {{topics[0].description}}</h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <h5>Post your answer here:</h5>
+    <form ng-submit='createpost()'>
+      <input class='col-sm-10' type="text" ng-model='topic.post'>
+      <input type="submit" value="Post">
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-5 col-sm-offset-1">
+    <div ng-repeat='post in posts |  orderBy: "-likes"'>
+      <h5>{{post.username}}: {{post.message}} <button ng-click='upvote(post)'type="button">&uarr;</button>{{post.likes}} <button  ng-click='downvote(post)' type="button">&darr;</button> {{post.dislikes}}</h5>
+      <div ng-repeat='comment in post._comment'>
+        <h6><a href="#user/{{comment._user}}">{{comment.username}}</a>: {{comment.message}}</h6>
+      </div>
+      <form ng-submit='createcomment(post, comment)'>
+        <input class='col-sm-10' type="text" ng-model='comment'>
+        <input type="submit" value="Comment">
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,41 @@
+<div ng-controller='dashController'>
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Welcome, {{loggeduser.first_name}}!</h1>
+      <a href="" ng-click='logout()'>logout</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <input type="text" placeholder="Search"></div>
+  </div>
+<span class="label">Ordered By: {{orderByField}}, Reverse Sort: {{reverseSort}}</span><br><br>
+<table class='table'>
+  <tr>
+    <th ng-click="orderByField='category'; reverseSort =! reverseSort">Category</th>
+    <th ng-click="orderByField='topic'; reverseSort =! reverseSort">Topic</th>
+    <th ng-click="orderByField='username'; reverseSort =! reverseSort">Username</th>
+    <th ng-click="orderByField='_post.length'; reverseSort =! reverseSort">Posts</th>
+  </tr>
+  <tr ng-repeat='topic in topics| orderBy:orderByField:reverseSort'>
+    <td>{{topic.category}}</td>
+    <td><a href="#topic/{{topic._id}}">{{topic.topic}}</a></td>
+    <td><a href="#user/{{topic._user}}">{{topic.username}}</a></td>
+    <td>{{topic._post.length}}</td>
+  </tr>
+</table>
+<div class="row">
+  <div class="col-sm-2">
+    <h5>Add a new topic</h5>
+    <form ng-submit='createTopic()'>
+    Topic: <input type="text" ng-model='topic.topic'>
+    Description: <input type="text" ng-model='topic.description'>
+    <!-- New Category: <input type="text" ng-model='category.name'> -->
+    Category: <select ng-options="cat.name as cat.name for cat in categories" ng-model="topic.category"></select>
+    <input type="submit" value="create">
+    </form>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+</div>
+</div>
